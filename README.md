@@ -16,3 +16,10 @@ Got the battle function loop started. Added printInventory function, to
 display array of items and their total sum. Added addTreasure function
 to give to player after winning battle.  
 
+//VERSION: 1.2
+Cleaned up the battle instance and implemented the bool. Will move them
+to a different function in a later version so that main is cleaner.
+
+
+
+
