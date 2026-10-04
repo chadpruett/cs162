@@ -1,6 +1,8 @@
 # cs162
 Fall 2026 - CS162 Class Folder
 
+***FINAL SUBMISSION IS LABELLED a01***
+
 //OVERVIEW
 Creating an RPG style console-based combat simulation. This will allow a
 player to fight random creatures, track and collect treasure, and manage
@@ -29,3 +31,4 @@ Lowered "Hoover Vacuum" damage.
 Lowered "Piano" damage.
 Fixed issue with attack text not showing during battle sequence. 
 Utilized const int with atkTxt, creature cap, and treasure cap.
+
