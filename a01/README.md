@@ -1,5 +1,4 @@
-# cs162
-Assignment 01 Folder
+# Assignment 01
 
 
 **FINAL SUBMISSION IS LABELLED a01**
@@ -8,15 +7,18 @@ Assignment 01 Folder
 This program was written and tested using g++ in Ubuntu/WSL.
 
 to compile:
+
 '''bash
+
 g++ -Wall -Wextra -std=c++17 a01.cpp -o a01
 
-
+## Overview
 //OVERVIEW:
 Creating an RPG style console-based combat simulation. This will allow a
 player to fight random creatures, track and collect treasure, and manage
 encounters until the player either dies or runs away.
 
+## Versions
 //VERSION: 1.0
 Got the functions of the monster and treasure generators going. Got the
 program able to excecute and run the loop, while correctly validating
