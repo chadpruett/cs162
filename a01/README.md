@@ -1,14 +1,15 @@
 # cs162
 Assignment 01 Folder
 
-**FINAL SUBMISSION IS LABELLED a01
 
-**THIS PROGRAM WAS WRITTEN AND TESTED USING g++ IN Ubuntu/WSL.
+**FINAL SUBMISSION IS LABELLED a01**
 
+## Compilation
+This program was written and tested using g++ in Ubuntu/WSL.
 
-**TO COMPILE:
-
-**g++ -Wall -Wextra -std=c++17 a01.cpp -o a01
+to compile:
+'''bash
+g++ -Wall -Wextra -std=c++17 a01.cpp -o a01
 
 
 //OVERVIEW:
