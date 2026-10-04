@@ -1,16 +1,15 @@
 # cs162
 Assignment 01 Folder
 
-***FINAL SUBMISSION IS LABELLED a01
+**FINAL SUBMISSION IS LABELLED a01
 
-THIS PROGRAM WAS WRITTEN AND TESTED USING g++ IN Ubuntu/WSL.
-
-
-TO COMPILE:
+**THIS PROGRAM WAS WRITTEN AND TESTED USING g++ IN Ubuntu/WSL.
 
 
-g++ -Wall -Wextra -std=c++17 a01.cpp -o a01
-***
+**TO COMPILE:
+
+**g++ -Wall -Wextra -std=c++17 a01.cpp -o a01
+
 
 //OVERVIEW:
 Creating an RPG style console-based combat simulation. This will allow a
