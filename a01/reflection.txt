@@ -1,12 +1,12 @@
 ******************* Companion Reflection Questions *************************
 
 
-//Question 1: Initial approach
+// Question 1: Initial approach
 How did you begin working on this assignment--did you plan or sketch out a
 design first, or did you jump straight into coding? Briefly explain why
 you took that approach.
 
-//Response:
+// Response:
 Personally, I have not enjoyed creating a plan before hand on a piece of
 paper. This was something I did in each class leading up to this one 
 and I am aware that it is something that I should really consider sitting 
@@ -21,11 +21,11 @@ structs in a program.
 ****************************************************************************
 
 
-//Question 2: Challenges & Problem-Solving:
+// Question 2: Challenges & Problem-Solving:
 What was the most challenging aspect of the assignment, and how did you
 address it?
 
-//Response:
+// Response:
 The most challenging aspect of this project was the battle bool logic. I
 had to look up how bools work when calling them in arguments, and then made 
 several small programs on the side reminding myself how to use it. Maybe
@@ -46,11 +46,11 @@ me. But I knew enough (expect bools apparently..) to make a game.
 ****************************************************************************
 
 
-//Question 3: Testing & Debugging
+// Question 3: Testing & Debugging
 How did you test your code, and can you describe one example of a bug you
 discovered and how you fixed it?
 
-//Response:
+// Response:
 I made this program in version iterations. I typically like doing that so that
 I can execute the program while adding litte bits to it in each iteration. 
 This too helps me see any bugs that may appear with each iteration. Instead of
@@ -72,11 +72,11 @@ in the main do while loop. For some reason I was getting && and || mixed up.
 ****************************************************************************
 
 
-//Question 4: Design & Structure Improvements
+// Question 4: Design & Structure Improvements
 If you had more time, what would you change in your code's structure or style
 to improve clarity or maintainability?
 
-//Response:
+// Response:
 I made this program all in one .cpp file. I love organization and keeping
 a program nice and tidy. I really wanted to put functions in separate files
 but simply didn't have enough time. There are several cosmetic and quality
@@ -90,11 +90,11 @@ if I think real hard i'm sure I can get it.
 ****************************************************************************
 
 
-//Question 5: Conceptual Understanding
+// Question 5: Conceptual Understanding
 Was anything in this assignment not review? What are your weakest topics in
 C++, generally? This will help me tailor the rest of the course!
 
-//Response:
+// Response:
 I don't remember the last time I messed around with <ctime> and srand. Also,
 the bool was proving to be my nemesis on this program until I tamed it. I
 was already pretty familiar with structs. My organizing brain loves that
