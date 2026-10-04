@@ -113,8 +113,7 @@ int main()
 					{
 						std::cout << '\n' << creature.name << " missed!\n";
 					}
-				}
-				
+				}	
 				// display health
 				
 				std::cout << "\n\n[Player HP: " << playerHP << "]  "
@@ -129,21 +128,22 @@ int main()
 					addTreasure(inventory, inventoryLength);
 				}
 					
-			} while (playerHP > 0 && creature.hp > 0 && playerMove != 3);
-			
-			// if player dies
+				} while (playerHP > 0 && creature.hp > 0 && playerMove != 3);
+				// if player dies
 
-			if (playerHP <= 0)
-			{
-				std::cout << "\nYou died..\n";
-			}
+		if (playerHP <= 0)
+		{
+			std::cout << "\nYou died..\n";
 		}
+		
+		}
+		
 		else if (playerCursor == 2)
 		{
 			printInventory(inventory, inventoryLength);
 		}
 
-	} while (playerHP == 0 && playerCursor != 3);
+	} while (playerHP > 0 && playerCursor != 3);
 
 	std::cout << '\n';
 
