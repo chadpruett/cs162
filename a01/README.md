@@ -8,7 +8,7 @@ This program was written and tested using g++ in Ubuntu/WSL.
 
 to compile:
 
-'''bash
+```bash
 
 g++ -Wall -Wextra -std=c++17 a01.cpp -o a01
 
