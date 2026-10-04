@@ -1,9 +1,9 @@
 # cs162
-Fall 2026 - CS162 Class Folder
+Assignment 01 Folder
 
 ***FINAL SUBMISSION IS LABELLED a01***
 
-//OVERVIEW
+//OVERVIEW:
 Creating an RPG style console-based combat simulation. This will allow a
 player to fight random creatures, track and collect treasure, and manage
 encounters until the player either dies or runs away.
@@ -32,3 +32,5 @@ Lowered "Piano" damage.
 Fixed issue with attack text not showing during battle sequence. 
 Utilized const int with atkTxt, creature cap, and treasure cap.
 
+//VERSION: a01
+Final completed program.
