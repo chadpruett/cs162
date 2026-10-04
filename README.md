@@ -20,6 +20,8 @@ to give to player after winning battle.
 Cleaned up the battle instance and implemented the bool. Will move them
 to a different function in a later version so that main is cleaner.
 
-
+//VERSION: 1.3
+Moved battle instance to a separate function so that main is cleaner.
+Added quirky choices to the game.  
 
 
