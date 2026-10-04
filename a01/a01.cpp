@@ -4,12 +4,15 @@
 #include<cstring>
 using namespace std;
 
+// Constants
 const int MAX = 50;
 const int MAX_ATK_TXT = 20;
 const int MAX_INVENTORY = 3;
 const int MAX_CREATURES = 5;
 const int MAX_TREASURES = 5;
 
+
+// Struct definitions
 struct Creature
 {
 	char name[MAX];
@@ -24,19 +27,29 @@ struct Treasure
 	char name[MAX];
 	int gil;
 };
+// Function declarations
 
-
-Treasure getTreasure();
+// Display
 void menu(const int playerHP);
-void battleMenu(const int playerHP, Creature creature);
 void gameOver();
-int intVal(int min, int max);
-void getCreature(Creature& creature);
-void printInventory(Treasure inventory[], int inventoryLength);
 void printCreature(const Creature& creature);
-void addTreasure(Treasure inventory[], int& inventoryLength);
-bool attackHits(int hitChance);
+void battleMenu(const int playerHP, Creature creature);
+
+// Input and Validation
+int intVal(int min, int max);
+
+// Game setup
+void getCreature(Creature& creature);
+Treasure getTreasure();
+
+// Combat
 int battleSequence(const int playerMove, int& playerHP, Creature& creature);
+bool attackHits(int hitChance);
+
+// Inventory
+void addTreasure(Treasure inventory[], int& inventoryLength);
+void printInventory(Treasure inventory[], int inventoryLength);
+
 
 int main()
 {
