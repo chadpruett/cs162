@@ -24,4 +24,8 @@ to a different function in a later version so that main is cleaner.
 Moved battle instance to a separate function so that main is cleaner.
 Added quirky choices to the game.  
 
-
+//VERSION: 1.4
+Lowered "Hoover Vacuum" damage. 
+Lowered "Piano" damage.
+Fixed issue with attack text not showing during battle sequence. 
+Utilized const int with atkTxt, creature cap, and treasure cap.

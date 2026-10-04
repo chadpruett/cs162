@@ -108,7 +108,11 @@ int main()
 		}
 
 	} while (playerHP > 0 && playerCursor != 3);
-
+	
+	if (playerCursor == 3)
+	{
+		std::cout << "\nI totally get it. I woulda done the same.\n";
+	}
 	gameOver();
 
 	return 0;
@@ -143,13 +147,18 @@ int battleSequence(const int playerMove, int& playerHP, Creature& creature)
 
 	if (playerMove == 1)
 	{
+		std::cout << "\nYou grabbed a book off a bookshelf\n"
+		<< "next to you and threw it at " << creature.name << "\n";
+		
 		playerHitChance = 90;
-		playerDamage = 20;
+		playerDamage = 35;
 	}
 	else if (playerMove == 2)
 	{
+		std::cout << "\nYou twirled your microphone\n"
+		<< "and launched it at " << creature.name << "\n";
 		playerHitChance = 50;
-		playerDamage = 40;
+		playerDamage = 55;
 	}
 	else 
 	{
@@ -178,15 +187,19 @@ int battleSequence(const int playerMove, int& playerHP, Creature& creature)
 
 		if (creature.hp > 0)
 		{
+
+			std::cout << '\n' << creature.name << " used "
+			<< creature.atkTxt;
+
 			if (attackHits(creature.atkPer))
 			{
 				playerHP -= creature.atkDmg;
-				std::cout << '\n' << creature.name << " hit you!\n";
+				std::cout << " and hit you!\n";
 			}
-		else
-		{
-			std::cout << '\n' << creature.name << " missed!\n";
-		}
+			else
+			{
+				std::cout << " and missed!\n";
+			}
 		
 		}	
 					
@@ -224,8 +237,8 @@ void getCreature(Creature& creature)
 	{"Mirror", "Reflect", 100, 50, 30},
 	{"Chandelier", "Fall on Head", 120, 60, 15},
 	{"Hallway Rug", "Rug Pull", 150, 20, 80},
-	{"Piano", "F Sharp", 180, 10, 93},
-	{"Hoover Vacuum", "Bristle Cleaning", 100, 45, 80},
+	{"Piano", "F Sharp", 180, 5, 93},
+	{"Hoover Vacuum", "Bristle Cleaning", 100, 35, 30},
 	};
 	
 	creature = creatures[index];
@@ -243,7 +256,7 @@ void printInventory(Treasure inventory[], int inventoryLength)
 	{
 		for(int i = 0; i < inventoryLength; i++)
 		{
-			std::cout << "\nItem: " << inventory[i].name
+			std::cout << '\n' << inventory[i].name
 			<< " - " << inventory[i].gil << " gil\n";
 
 			inventorySum+=inventory[i].gil;
