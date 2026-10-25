@@ -1,0 +1,56 @@
+******************* Companion Reflection Questions *************************
+
+
+// Question 1: 
+What changed when responsibility moved from main and free functions into
+Image?
+
+// Response:
+When moving the responsibility from main to Image, I was able to tidy up
+the code more thoroughly. I was allowed to access specific variables in
+classes without mistakenly overwriting anything if I were trying to do
+them from main. Another great thing was Image being able to make the 
+allocation and memory leak cleanups on its own. 
+
+****************************************************************************
+
+
+// Question 2:
+How does your destructor know what to delete, and why does the deletion
+order matter?
+
+// Response:
+The destructor utilizes what is stored in height to know how many rows to 
+delete. It deletes each row using the address pixels[i], then deletes
+that array of pointers using delete[] pixels. 
+****************************************************************************
+
+
+// Question 3:
+Describe one bug you found and the small test that helped you find it. 
+
+// Response:
+I got the bulk of my near hundreds of bugs through the bool functions. 
+Specifically when opening files, verifying the filenames, and then
+verifying the contents within them. It probably would have helped me to
+have separate windows open to keep track of all the code and filenames. I
+was loading parse-p1.ppm in main while I was intending to load parse.ppm.
+So when comparing the output with the expected grayscale values, the
+mismatch had me scratching my head. I found myself jumping into the
+file reading code changing things in there when the whole time it was just
+a filename mismatch.  
+
+****************************************************************************
+
+
+// Question 4:
+What would go wrong if copying an image only copied its pixel pointer?
+
+// Response:
+The first destructor would free up the memory that is being shared. Then
+the second called destructor would try to access that memory that was
+released which could cause a crash. The Image class disables copying, and 
+each Image will have its own allocation.
+
+
+****************************************************************************
