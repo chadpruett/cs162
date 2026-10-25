@@ -31,6 +31,20 @@ void printImage(struct P1 img){
   }
 }
 
+//add freeImage function
+void freeImage(struct P1& img)
+{
+	for (int i = 0; i < img.height; i++)
+	{
+		delete[] img.pixels[i];
+	}
+	delete[] img.pixels;
+	img.pixels = nullptr;
+}
+
+
+
+
 // Function to invert the image (change 0s to 1s and vice versa)
 void invertImage(struct P1 img){
   for(int i=0; i < img.height; i++){          // Loop through each row
@@ -68,6 +82,9 @@ int main(){
     parseFile(image,inputFile);               // Read pixel data
     invertImage(image);                       // Invert the image
     printImage(image);                        // Display the result
+    // call added freeImage function to free memory
+    freeImage(image);
+
   }
   else{
     cout << "Whoops this isn't an image file, bye!" << endl;
