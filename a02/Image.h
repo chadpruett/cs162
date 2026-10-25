@@ -25,6 +25,7 @@ class Image
 		bool load(const char file[]);
 		void invert();
 		bool write(const char fileName[]) const;
+		void grayScale();
 };
 
 #endif

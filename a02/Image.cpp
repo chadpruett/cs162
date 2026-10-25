@@ -147,4 +147,20 @@ bool Image::write(const char fileName[]) const
 	return true;
 }
 
+void Image::grayScale()
+{
+	for (int row = 0; row < height; row++)
+	{
+		for (int col = 0; col < width; col++)
+		{
+			int avg = (pixels[row][col].red
+				+ pixels[row][col].green
+				+ pixels[row][col].blue) / 3;
 
+			pixels[row][col].red = avg;
+			pixels[row][col].green = avg;
+			pixels[row][col].blue = avg;
+		}
+	}
+
+}

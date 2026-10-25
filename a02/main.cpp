@@ -1,5 +1,4 @@
 #include "Image.h"
-
 int main()
 {
 	Image image;
@@ -9,9 +8,9 @@ int main()
 		return 1;
 	}
 
-	image.invert();
-
-	if (!image.write("tiny-inverted-out.ppm"))
+	//image.invert();
+	image.grayScale();
+	if (!image.write("tiny-grayscale-out.ppm"))
 	{
 		return 1;
 	}
