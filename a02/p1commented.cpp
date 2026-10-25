@@ -74,7 +74,7 @@ void invertImage(struct P3 img){
 
 int main(){
   char preface[50];                           // Buffer to store file format identifier
-  ifstream inputFile("pikachu.ppm");             // Open the image file
+  ifstream inputFile("parse.ppm");             // Open the image file
   if (!inputFile) // verify file opens
   {
 	std::cout << "\nCould not open file.\n";
