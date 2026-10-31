@@ -29,7 +29,7 @@ Departure Terminal - The shuttle prepares for its return to Earth
 
 
 ## Versions
-// 1.1:
+// 1.0:
 - Created struct to hold stop name and description
 - Node holds only one stop and a pointer to the next node
 - Two deletes should prevent objects from pointing to the same node and deleting them
