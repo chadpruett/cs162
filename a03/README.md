@@ -28,7 +28,7 @@ Echo Balcony - Visitors can watch distant planets through an aging telescope
 Departure Terminal - The shuttle prepares for its return to Earth
 
 
-## Versions
+## Commits
 // 1.0:
 - Created struct to hold stop name and description
 - Node holds only one stop and a pointer to the next node
