@@ -26,7 +26,7 @@ class StopList
 		StopList(const StopList&) = delete;
 		StopList& operator=(const StopList&) = delete;
 		bool append(const Stop& stop);
-
+		void display() const;
 };
 
 

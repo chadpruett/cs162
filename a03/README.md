@@ -35,3 +35,7 @@ Departure Terminal - The shuttle prepares for its return to Earth
 - Two deletes should prevent objects from pointing to the same node and deleting them
 - Added a bool append to sort through the nodes, discard and/or add the next nodes
 
+// 1.1:
+- Added a display function in StopList.cpp to 
+- Added main.cpp to try a test of the program so far
+- 

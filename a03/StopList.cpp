@@ -1,4 +1,5 @@
 #include "StopList.h"
+#include <iostream>
 
 StopList::StopList()
 {
@@ -15,7 +16,7 @@ StopList::~StopList()
 	}
 }
 
-StopList::bool append(const Stop& stop)
+bool StopList::append(const Stop& stop)
 {
 	if (stop.name.empty()) // discard an empty name
 	{
@@ -56,3 +57,23 @@ StopList::bool append(const Stop& stop)
 
 	return true;
 }
+void StopList::display() const
+{
+	if (head == nullptr)
+	{
+		std::cout << "\nThe shuttle list is empty.\n";
+		return;
+	}
+
+	const Node* current = head;
+
+	while (current != nullptr)
+	{
+		std::cout << '\n' << current->data.name << '\n'
+			  << current->data.description << '\n';
+
+		current = current->next;
+	}
+}
+
+
