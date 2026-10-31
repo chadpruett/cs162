@@ -1,0 +1,30 @@
+******************* Companion Reflection Questions *************************
+// Question 1:
+What did your theme make you want to do with the collection?
+
+
+// Response:
+
+****************************************************************************
+// Question 2:
+Which links change when you insert a node? Which change when you remove the
+first node?
+
+// Response:
+
+
+****************************************************************************
+// Question 3:
+Describe a pointer bug you fixed, or a boundary case that you checked
+carefully.
+
+// Response:
+
+****************************************************************************
+// Question 4:
+What does the class own, and how do you prevent nodes from being leaked or
+deleted twice?
+
+// Response:
+
+****************************************************************************
