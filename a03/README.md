@@ -38,4 +38,5 @@ Departure Terminal - The shuttle prepares for its return to Earth
 // 1.1:
 - Added a display function in StopList.cpp to 
 - Added main.cpp to try a test of the program so far
-- 
+- Added bool to identify current stop and new insert stop
+- Tested program to work with additional stop

@@ -76,4 +76,41 @@ void StopList::display() const
 	}
 }
 
+bool StopList::insertAfter(const std::string& name, const Stop& stop)
+{
+	if (stop.name.empty())
+	{
+		return false;
+	}
 
+	Node* current = head;
+	Node* target = nullptr;
+
+	while (current != nullptr)
+	{
+		if (current->data.name == stop.name)
+		{
+			return false;
+		}
+
+		if (current->data.name == name)
+		{
+			target = current;
+		}
+
+		current = current->next;
+	}
+
+	if (target == nullptr)
+	{
+		return false;
+	}
+	
+	Node* newNode = new Node;
+	newNode->data = stop;
+
+	newNode->next = target->next;
+	target->next = newNode;
+
+	return true;
+}
