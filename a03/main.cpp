@@ -30,7 +30,25 @@ int main()
 		std::cout << "\nCould not insert stop.\n";
 	}
 
+	if (shuttle.remove("Arrival Platform")) // remove stop by name
+	{
+		std::cout << "\nStop removed successfully.\n";
+	}
+	else
+	{
+		std::cout << "\nNo stop with that name found.\n";
+	}
+
 	shuttle.display();
+
+	if (shuttle.save("itinerary.txt"))
+	{
+		std::cout << "\nItinerary saved successfully.\n\n";
+	}
+	else
+	{
+		std::cout << "\nCould not save the itinerary.\n\n";
+	}
 
 	return 0;
 }

@@ -28,6 +28,8 @@ class StopList
 		bool append(const Stop& stop);
 		void display() const;
 		bool insertAfter(const std::string& name, const Stop& stop);
+		bool remove(const std::string& name);
+		bool save(const std::string& filename) const;
 };
 
 

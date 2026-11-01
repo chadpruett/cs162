@@ -40,3 +40,10 @@ Departure Terminal - The shuttle prepares for its return to Earth
 - Added main.cpp to try a test of the program so far
 - Added bool to identify current stop and new insert stop
 - Tested program to work with additional stop
+
+// 1.2:
+- Added bool remove function to delete a stop by name
+- Tested in main, passed
+- Added bool save function to save the itinerary to a new file or overwrite
+
+
