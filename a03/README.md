@@ -46,4 +46,8 @@ Departure Terminal - The shuttle prepares for its return to Earth
 - Tested in main, passed
 - Added bool save function to save the itinerary to a new file or overwrite
 
+// 1.3:
+- Implemented do while loop in main
+- One by one activated each choice
+- Program is functioning as intended
 

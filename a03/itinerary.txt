@@ -2,8 +2,17 @@
 Outer Space Hotel Shuttle Itinerary
 ***********************************
 
+Arrival Platform
+Passengers arrive beneath the pale light of Arcadia's moon.
+
 Outer Space Hotel
-The concierge greets travelers in the lobby.
+The concierge greets travellers in the lobby.
+
+Lunar Basin
+Where you crash landed
 
 Tabloid Lounge
-A forgotten lounge singer performs for the evening guests.
+A forgotten singer perfomrs for the evening guests.
+
+Departure Terminal
+The shuttle prepares for its return to Earth.
