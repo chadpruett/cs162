@@ -1,0 +1,83 @@
+************************************************************************
+// Check 1:
+Display the starting collection.
+Expected: Five starting stops appear in order.
+
+// Actual:
+
+Arrival Platform
+Passengers arrive beneath the pale light of Arcadia's moon.
+
+Outer Space hotel
+The concierge greets travelers in the lobby.
+
+Tabloid Lounge
+A forgotten lounge singer performs for the evening guests.
+
+Echo Balcony
+Visitors watch distant planets through an aging telescope.
+
+Departure Terminal
+The shuttle prepares for its return to Earth.
+
+************************************************************************
+
+// Check 2:
+Expected: Insert after the first and last stops.
+
+// Actual:
+
+Insert after which stop? Arrival Platform
+Enter the new stop's name: Moon Garden
+Enter its description: The garden of crimson roses grown on lunar soil.
+
+Insert after which stop? Departure Terminal
+Enter the new stop's name: Lunar Basin
+Enter its description: Crash landing site of Star Class Vessel: "Bouquet."
+
+************************************************************************
+
+// Check 3:
+Expected: Reject duplicate/empty names, insertion after a missing name,
+and removal of a missing name.
+
+// Actual:
+Enter the new stops' name: Departure Terminal
+Enter its description: The shuttle prepares for its return to Earth.
+
+Could not add stop.
+
+Insert after which stop?: Tabloid Longe
+
+Enter the new stop's name: Lobby
+Enter its description: Entry of the Outer Space Hotel
+
+Could not insert stop.
+
+Enter the name of the stop to remove: Tabloid Long
+
+No stop with that name was found.
+
+
+************************************************************************
+
+// Check 4:
+Expected: Remove the first, middle, and last stops.
+
+// Actual:
+Enter the name of the stop to remove: Arrival Platform
+
+Stop removed successfully. 
+
+************************************************************************
+
+// Check 5
+Expected: Save itinerary
+
+// Actual:
+Enter the filename to save to: checking.txt
+
+Itinerary saved successfully.
+
+
+************************************************************************

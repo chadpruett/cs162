@@ -4,6 +4,10 @@ What did your theme make you want to do with the collection?
 
 
 // Response:
+I am currently writing a book about a Hotel in Outerspace and I thought
+that it would be cool to utilize different stops around the resort. Adding,
+inserting, and removing all the stops would let me change the shuttle's
+route while keeping the destinations in order. 
 
 ****************************************************************************
 // Question 2:
@@ -11,7 +15,10 @@ Which links change when you insert a node? Which change when you remove the
 first node?
 
 // Response:
-
+When inserting a node, the new node's next points to the node that
+originally followed the target, and the target's next points to the new
+node. When removing the first node, head changes to point to the second
+node before the original first node is removed. 
 
 ****************************************************************************
 // Question 3:
@@ -19,6 +26,15 @@ Describe a pointer bug you fixed, or a boundary case that you checked
 carefully.
 
 // Response:
+Its funny that one of the first things I noted about lacking in were bools,
+because the past two assignments have been very bool heavy. I feel that I
+am getting better at them, but at the same time I was facing so many bugs 
+when compiling. One that sucked really bad was the order of operations when
+removing a node. I needed to reconnect the list before deleting the node so 
+I would not lose access to the remaining stops or access freed memory. I
+had to write comment code to mentally keep track of some of the steps I 
+was taking. Sorry if it seems chaotic, I understand that it should probably
+be more organized when in a "professional" work setting.
 
 ****************************************************************************
 // Question 4:
@@ -26,5 +42,9 @@ What does the class own, and how do you prevent nodes from being leaked or
 deleted twice?
 
 // Response:
+The StopList class owns every node allocated with new. The remove bool
+deletes the target node after unlinking, and the destructor deletes all the
+remaining nodes. Copying the list is disabled so two list objects cannot
+accidentally own and delte the same nodes.  
 
 ****************************************************************************

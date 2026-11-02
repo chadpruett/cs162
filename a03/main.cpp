@@ -10,10 +10,10 @@ int main()
 	"Passengers arrive beneath the pale light of Arcadia's moon."});
 
 	shuttle.append({"Outer Space Hotel",
-	"The concierge greets travellers in the lobby."});
+	"The concierge greets travelers in the lobby."});
 	
 	shuttle.append({"Tabloid Lounge",
-	"A forgotten singer perfomrs for the evening guests."});
+	"A forgotten lounge singer performs for the evening guests."});
 
 	shuttle.append({"Echo Balcony",
 	"Visitors watch distant planets through an aging telescope."});
@@ -78,7 +78,7 @@ int main()
 			std::string targetName;
 			Stop newStop;
 
-			std::cout << "\nInsert after which stop?";
+			std::cout << "\nInsert after which stop?: ";
 			if (!std::getline(std::cin, targetName))
 			{
 				break;
@@ -117,7 +117,7 @@ int main()
 			
 			if (shuttle.remove(stopName))
 			{
-				std::cout << "\nStop removed sucessfull.\n";
+				std::cout << "\nStop removed successfully.\n";
 			}
 			else
 			{
