@@ -5,7 +5,8 @@
 What was your biggest challenge?
 
 // Response:
-
+Having the skeleton from the first assignment there made the rest somewhat
+easier to see bigger picture.
 ****************************************************************************
 
 
@@ -29,6 +30,6 @@ the player returns?
 feel about your progress?
 
 // Response:
-
+Pointers. 
 ****************************************************************************
 

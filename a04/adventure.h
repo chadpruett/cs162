@@ -24,6 +24,42 @@ struct Treasure
 	int gil;
 };
 
+struct Room
+{
+	char title[MAX];
+	char description[300];
+
+	char leftPath[MAX];
+	char rightPath[MAX];
+
+	Creature enemy;
+	bool hasEnemy;
+
+	Treasure treasure;
+	bool hasTreasure;
+
+	Room* left;
+	Room* right;
+	Room* parent;
+};
+
+// class definitions
+class Adventure
+{
+	private:
+		Room* root;
+		Room* currentRoom;
+		
+		void deleteRooms(Room* room);
+	public:
+		Adventure();
+		~Adventure();
+
+		// prevent owning the same rooms
+		Adventure(const Adventure&) = delete;
+		Adventure& operator=(const Adventure&) = delete;
+};
+
 // display
 void menu(const int playerHP);
 void gameOver();

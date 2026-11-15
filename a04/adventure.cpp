@@ -5,6 +5,74 @@
 #include<ctime>
 #include<cstring>
 
+// adventure class constructor
+Adventure::Adventure() // runs when object is created
+{
+	root = new Room{}; // create a room
+
+	// create lobby, set title and description
+	std::strcpy(root->title, "Lobby");
+	std::strcpy(root->description, "A beautiful chandelier flickers above "
+	"the empty reception desk. Patti Page's 'Old Cape Cod' echoes throughout "
+	"the cavernous halls of the hotel. ");
+
+	std::strcpy(root->leftPath, "Enter through the warping halls "
+	"of the Grandeur Hallway.");
+	root->left->parent = root;
+
+	root->right = new Room{};
+	std::strcpy(root->right->title, "Lunar Dune");
+	std::strcpy(root->right->description, "Silver sands stretch beneath "
+	"a dusk crimson sky.");
+
+	std::strcpy(root->rightPath, "Traverse across the Lunar Dune");
+
+	root->right->parent = root; //set hallway return to lobby
+
+	Room* hallway = root->left; // point to hallway
+
+	// create the ballroom, set title and description
+	hallway->left = new Room{};
+	std::strcpy(hallway->left->title, "Ballroom");
+	std::strcpy(hallway->left->description, "An empty dance floor waits "
+	"beneathe dusty lights. You can't help but wonder what has gone down here.");
+	std::strcpy(hallway->leftPath, "Enter the Ballroom");
+
+	hallway->left->parent = hallway; // return from ballroom to hallway
+
+	hallway->right = new Room{}; // allocate room and connect to hallway right child
+
+	// set room title and description
+	std::strcpy(hallway->right->title, "Suite 1027");
+	std::strcpy(hallway->right->description, "The light from the "
+	"moon's mother planet spills across the neatly fashioned bed.");
+
+	// store path to hallway
+	std::strcpy(hallway->rightPath, "Enter Suite 1027");
+
+	// return to hallway
+	hallway->right->parent = hallway;
+
+	currentRoom = root; //copy to lobby's address
+}
+
+Adventure::~Adventure() //
+{
+	delete root; // free memory
+}
+
+void Adventure::deleteRooms(Room* room)
+{
+	if (room == nullptr)
+	{
+		return;
+	}
+
+	deleteRooms(room->left);
+	deleteRooms(room->right);
+
+	delete room;
+}
 void menu(const int playerHP)
 {
 	std::cout << "\n---- Main Menu ----"
