@@ -1,0 +1,34 @@
+******************* Companion Reflection Questions *************************
+
+
+// Question 1: How did you adapt or refactor your earlier battle system?
+What was your biggest challenge?
+
+// Response:
+
+****************************************************************************
+
+
+// Question 2: What is the base case for your recursive loot calculation?
+Why does it follow child pointers but not parent pointers?
+
+// Response:
+
+****************************************************************************
+
+
+// Question 3: How does your program remember what happened in a room when
+the player returns?
+
+// Response:
+
+****************************************************************************
+
+
+// Question 4: What is something you learned in this class? How do you
+feel about your progress?
+
+// Response:
+
+****************************************************************************
+

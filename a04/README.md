@@ -1,0 +1,25 @@
+# Assignment 04
+
+
+**FINAL SUBMISSION IS LABELLED a01**
+
+## Compilation
+This program was written and tested using g++ in Ubuntu/WSL.
+
+to compile:
+
+```bash
+
+g++ -Wall -Wextra -std=c++17 a01.cpp -o a01
+
+## Overview
+// OVERVIEW:
+Turning our original assignment 1 battle system into an explorable adventure.
+Player will travel through a tree of rooms, fight enemies, collect treasure,
+and try to return to the entrance with the loot. 
+
+Setting will take place in a hotel on a moon at the furthest reaches of our
+solar system. 
+
+## Commit
+// Commit: 1.0
