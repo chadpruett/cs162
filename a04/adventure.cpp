@@ -10,21 +10,28 @@ Adventure::Adventure() // runs when object is created
 {
 	root = new Room{}; // create a room
 
-	// create lobby, set title and description
+	// create lobby
 	std::strcpy(root->title, "Lobby");
 	std::strcpy(root->description, "A beautiful chandelier flickers above "
 	"the empty reception desk. Patti Page's 'Old Cape Cod' echoes throughout "
 	"the cavernous halls of the hotel. ");
-
+	
+	// show next room
 	std::strcpy(root->leftPath, "Enter through the warping halls "
 	"of the Grandeur Hallway.");
-	root->left->parent = root;
-
+	
+	// create hallway
+	root->left = new Room{};
+	std::strcpy(root->left->title, "Grandeur Hallway");
+	std::strcpy(root->left->description, "The hallway seems to stretch around "
+	"your every step.");
+	
+	// create lunar dune
 	root->right = new Room{};
 	std::strcpy(root->right->title, "Lunar Dune");
 	std::strcpy(root->right->description, "Silver sands stretch beneath "
 	"a dusk crimson sky.");
-
+	
 	std::strcpy(root->rightPath, "Traverse across the Lunar Dune");
 
 	root->right->parent = root; //set hallway return to lobby
@@ -53,12 +60,77 @@ Adventure::Adventure() // runs when object is created
 	// return to hallway
 	hallway->right->parent = hallway;
 
+	Room* ballroom = hallway->left;
+
+	// create tabloid lounge
+	ballroom->left = new Room{};
+	std::strcpy(ballroom->left->title, "Tabloid Lounge");
+	std::strcpy(ballroom->left->description, "A candle lit bar curves beside "
+	"circular tables. A central stage holds a microphone, drums, electric "
+	"piano, guitar and bass.");
+	
+	std::strcpy(ballroom->leftPath, "Enter Tabloid Lounge");
+	ballroom->left->parent = ballroom;
+
+	// create terrace
+	ballroom->right = new Room{};
+	std::strcpy(ballroom->right->title, "Echo Balcony");
+	std::strcpy(ballroom->right->description, "The hotel's balcony "
+	"overlooks the lunar landscape. Its spectacular.");
+	
+	std::strcpy(ballroom->rightPath, "Step onto the Terrace");
+	ballroom->right->parent = ballroom;
+
+	Room* dune = root->right;
+
+	dune->left = new Room{};
+
+	std::strcpy(dune->left->title, "Crash Site");
+	std::strcpy(dune->left->description, "A broken spacecraft lies "
+	" half buried in the silver sand.");
+
+	std::strcpy(dune->leftPath, "Approach Crash Site");
+
+	// connect crash site to lunar dune
+	dune->left->parent = dune;
+
 	currentRoom = root; //copy to lobby's address
 }
 
 Adventure::~Adventure() //
 {
-	delete root; // free memory
+	deleteRooms(root); // free memory
+}
+
+void Adventure::displayRoom() const
+{
+	// display room title & description
+	std::cout << "\n----- " << currentRoom->title << " ----\n"
+		  << currentRoom->description << "\n";
+	
+	// show a path if available
+	if (currentRoom->left != nullptr)
+	{
+		std::cout << "\n1) " << currentRoom->leftPath;
+	}
+
+	if (currentRoom->right != nullptr)
+	{
+		std::cout << "\n2) " << currentRoom->rightPath;
+	}
+
+	// if no path is available
+	if (currentRoom->parent != nullptr)
+	{
+		std::cout << "\n3) Return to " << currentRoom->parent->title;
+	
+	}
+	else
+	{
+		std::cout << "\n3) Leave the adventure";	
+	}
+
+	std::cout << "\n";
 }
 
 void Adventure::deleteRooms(Room* room)

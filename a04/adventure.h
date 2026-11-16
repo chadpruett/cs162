@@ -55,6 +55,8 @@ class Adventure
 		Adventure();
 		~Adventure();
 
+		void displayRoom() const;
+
 		// prevent owning the same rooms
 		Adventure(const Adventure&) = delete;
 		Adventure& operator=(const Adventure&) = delete;

@@ -8,7 +8,10 @@ using namespace std;
 int main()
 {
 	srand(static_cast<unsigned int>(time(nullptr)));
-	
+
+	Adventure game;
+	game.displayRoom();	
+	/*
 	Creature creature;
 	Treasure inventory[MAX_INVENTORY]{};
 
@@ -82,6 +85,6 @@ int main()
 		std::cout << "\nI totally get it. I woulda done the same.\n";
 	}
 	gameOver();
-
+*/
 	return 0;
 }
