@@ -10,7 +10,7 @@ int main()
 	srand(static_cast<unsigned int>(time(nullptr)));
 
 	Adventure game;
-	game.displayRoom();	
+	game.explore();	
 	/*
 	Creature creature;
 	Treasure inventory[MAX_INVENTORY]{};

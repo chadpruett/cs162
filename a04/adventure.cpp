@@ -37,6 +37,7 @@ Adventure::Adventure() // runs when object is created
 	root->right->parent = root; //set hallway return to lobby
 
 	Room* hallway = root->left; // point to hallway
+	hallway->parent = root;
 
 	// create the ballroom, set title and description
 	hallway->left = new Room{};
@@ -131,6 +132,56 @@ void Adventure::displayRoom() const
 	}
 
 	std::cout << "\n";
+}
+
+void Adventure::explore()
+{
+	bool exploring = true;
+
+	while (exploring)
+	{
+		displayRoom();
+
+		std::cout << "\n>> ";
+		int choice = intVal(1, 3);
+
+		if (choice == 1)
+		{
+			if (currentRoom->left != nullptr)
+			{
+				currentRoom = currentRoom->left;
+			}
+			else
+			{
+				std::cout << "\nThere is no path that way.\n";
+			}
+		}
+		else if (choice == 2)
+		{
+				
+			if (currentRoom->right != nullptr)
+			{
+				currentRoom = currentRoom->right;
+			}
+			else
+			{
+				std::cout << "\nThere is no path that way.\n";
+			}
+		}
+		else
+		{
+			if (currentRoom->parent != nullptr)
+			{
+				currentRoom = currentRoom->parent;
+			}
+			else
+			{
+				std::cout << "\nYou leave the adventure.\n";
+				exploring = false;
+			}
+		}
+	}
+
 }
 
 void Adventure::deleteRooms(Room* room)

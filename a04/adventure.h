@@ -2,7 +2,7 @@
 #define ADVENTURE_H
 
 // constants
-const int MAX = 50;
+const int MAX = 150;
 const int MAX_ATK_TXT = 20;
 const int MAX_INVENTORY =3;
 const int MAX_CREATURES = 5;
@@ -56,6 +56,7 @@ class Adventure
 		~Adventure();
 
 		void displayRoom() const;
+		void explore();
 
 		// prevent owning the same rooms
 		Adventure(const Adventure&) = delete;
@@ -81,6 +82,6 @@ bool attackHits(int hitChance);
 
 // inventory
 void addTreasure(Treasure inventory[], int& inventoryLength);
-void printInventory(Treasure inventory[], int inventoryLenght);
+void printInventory(Treasure inventory[], int inventoryLength);
 
 #endif

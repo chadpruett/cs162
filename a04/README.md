@@ -27,3 +27,6 @@ solar system.
 
 // Commit: 1.1
 - Completed room map and added room display
+
+// Commit: 1.2
+- Implemented explore function to traverse the rooms
