@@ -30,3 +30,6 @@ solar system.
 
 // Commit: 1.2
 - Implemented explore function to traverse the rooms
+
+// Commit: 1.3
+- Added treasures to the rooms and test call

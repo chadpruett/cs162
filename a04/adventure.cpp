@@ -95,12 +95,46 @@ Adventure::Adventure() // runs when object is created
 	// connect crash site to lunar dune
 	dune->left->parent = dune;
 
+	//treasure system
+	hallway->right->treasure = Treasure{"Bellhop Hat", 45};
+	hallway->right->hasTreasure = true;
+
+	ballroom->left->treasure = Treasure{"Microphone", 25};
+	ballroom->left->hasTreasure = true;
+
+	dune->left->treasure = Treasure{"Communication Log", 75};
+	dune->left->hasTreasure = true;
+
+	startingLoot = calcLoot(root);
+
 	currentRoom = root; //copy to lobby's address
+	
+	//temp loot check
+	std::cout << "\nStarting treasure: " << startingLoot << " gil\n";
 }
 
 Adventure::~Adventure() //
 {
 	deleteRooms(root); // free memory
+}
+
+int Adventure::calcLoot(const Room* room) const
+{
+	// no treasure 
+	if (room == nullptr)
+	{
+		return 0;
+	}
+
+	// if treasure is in room
+	int roomLoot = 0;
+
+	if (room->hasTreasure)
+	{
+		roomLoot = room->treasure.gil;
+	}
+
+	return roomLoot + calcLoot(room->left) + calcLoot(room->right);
 }
 
 void Adventure::displayRoom() const

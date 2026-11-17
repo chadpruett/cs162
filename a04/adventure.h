@@ -4,7 +4,7 @@
 // constants
 const int MAX = 150;
 const int MAX_ATK_TXT = 20;
-const int MAX_INVENTORY =3;
+const int MAX_INVENTORY = 15;
 const int MAX_CREATURES = 5;
 const int MAX_TREASURES = 5;
 
@@ -49,6 +49,9 @@ class Adventure
 	private:
 		Room* root;
 		Room* currentRoom;
+
+		int startingLoot;
+		int calcLoot(const Room* room) const;
 		
 		void deleteRooms(Room* room);
 	public:
