@@ -21,7 +21,9 @@ Why does it follow child pointers but not parent pointers?
 // Question 3: How does your program remember what happened in a room when
 the player returns?
 
-// Response:
+// Response: Once a treasure is collected, I set the bool hasTreasure to
+false so that the program remembers not to give me the loot that has been
+assigned to that particular room.
 
 ****************************************************************************
 

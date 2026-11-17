@@ -47,11 +47,18 @@ struct Room
 class Adventure
 {
 	private:
+		int playerHP;
+
 		Room* root;
 		Room* currentRoom;
 
 		int startingLoot;
 		int calcLoot(const Room* room) const;
+		
+		Treasure inventory[MAX_INVENTORY];
+		int inventoryLength;
+
+		void collectTreasure();
 		
 		void deleteRooms(Room* room);
 	public:

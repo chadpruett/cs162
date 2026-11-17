@@ -33,3 +33,11 @@ solar system.
 
 // Commit: 1.3
 - Added treasures to the rooms and test call
+
+// Commit: 1.4
+- Added treasure display to options
+- Added bool to treasures when collected from a room
+- passed tests
+- Added creatures to rooms
+- Prevent player form collecting treasure until creatures hp is < 0
+

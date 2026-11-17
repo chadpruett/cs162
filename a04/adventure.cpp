@@ -17,8 +17,7 @@ Adventure::Adventure() // runs when object is created
 	"the cavernous halls of the hotel. ");
 	
 	// show next room
-	std::strcpy(root->leftPath, "Enter through the warping halls "
-	"of the Grandeur Hallway.");
+	std::strcpy(root->leftPath, "Enter the Grandeur Hallway.");
 	
 	// create hallway
 	root->left = new Room{};
@@ -105,6 +104,18 @@ Adventure::Adventure() // runs when object is created
 	dune->left->treasure = Treasure{"Communication Log", 75};
 	dune->left->hasTreasure = true;
 
+	// player
+	playerHP = 100;
+
+	// start with no treasure
+	inventoryLength = 0;
+	
+	// add creatures
+	ballroom->left->enemy = Creature{
+		"Piano", "F Sharp", 80, 10, 60
+	};
+	ballroom->left->hasEnemy = true;
+
 	startingLoot = calcLoot(root);
 
 	currentRoom = root; //copy to lobby's address
@@ -116,6 +127,36 @@ Adventure::Adventure() // runs when object is created
 Adventure::~Adventure() //
 {
 	deleteRooms(root); // free memory
+}
+
+void Adventure::collectTreasure()
+{
+	if (!currentRoom->hasTreasure)
+	{
+		return;
+	}
+	
+	if (currentRoom->hasEnemy && currentRoom->enemy.hp > 0 )
+	{
+		return;
+	}
+
+	if (inventoryLength < MAX_INVENTORY)
+	{
+		inventory[inventoryLength] = currentRoom->treasure;
+		inventoryLength++;
+
+		std::cout << "\nYou gathered "
+			  << currentRoom->treasure.name << " worth "
+			  << currentRoom->treasure.gil << " gil.\n";
+		
+		// set treasure to collected
+		currentRoom->hasTreasure = false;
+	}
+	else
+	{
+		std::cout << "\nYou can't carry anymore treasure...\n";
+	}
 }
 
 int Adventure::calcLoot(const Room* room) const
@@ -142,6 +183,9 @@ void Adventure::displayRoom() const
 	// display room title & description
 	std::cout << "\n----- " << currentRoom->title << " ----\n"
 		  << currentRoom->description << "\n";
+
+	// display player hp
+	std::cout << "\n[Player HP: " << playerHP << "]\n";
 	
 	// show a path if available
 	if (currentRoom->left != nullptr)
@@ -165,6 +209,9 @@ void Adventure::displayRoom() const
 		std::cout << "\n3) Leave the adventure";	
 	}
 
+	// display inventory
+	std::cout << "\n4) Check inventory";
+
 	std::cout << "\n";
 }
 
@@ -174,10 +221,13 @@ void Adventure::explore()
 
 	while (exploring)
 	{
+		// collect treasure before anything displays
+		collectTreasure();
+
 		displayRoom();
 
 		std::cout << "\n>> ";
-		int choice = intVal(1, 3);
+		int choice = intVal(1, 4);
 
 		if (choice == 1)
 		{
@@ -202,7 +252,7 @@ void Adventure::explore()
 				std::cout << "\nThere is no path that way.\n";
 			}
 		}
-		else
+		else if (choice == 3)
 		{
 			if (currentRoom->parent != nullptr)
 			{
@@ -213,6 +263,10 @@ void Adventure::explore()
 				std::cout << "\nYou leave the adventure.\n";
 				exploring = false;
 			}
+		}
+		else // added display inventory option
+		{
+			printInventory(inventory, inventoryLength);
 		}
 	}
 
