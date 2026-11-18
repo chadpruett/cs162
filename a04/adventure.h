@@ -59,7 +59,7 @@ class Adventure
 		int inventoryLength;
 
 		void collectTreasure();
-		
+		void fight();	
 		void deleteRooms(Room* room);
 	public:
 		Adventure();

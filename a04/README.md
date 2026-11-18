@@ -41,3 +41,8 @@ solar system.
 - Added creatures to rooms
 - Prevent player form collecting treasure until creatures hp is < 0
 
+// Commit: 1.5
+- Added the battle sequence
+- Added inventory system update and track keeping
+- Checked the exploration with tests
+

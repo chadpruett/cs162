@@ -120,13 +120,33 @@ Adventure::Adventure() // runs when object is created
 
 	currentRoom = root; //copy to lobby's address
 	
-	//temp loot check
-	std::cout << "\nStarting treasure: " << startingLoot << " gil\n";
+	//total loot in Hotel
+	std::cout << "\nTotal treasure available in Hotel: " << startingLoot << " gil\n";
 }
 
 Adventure::~Adventure() //
 {
 	deleteRooms(root); // free memory
+}
+
+void Adventure::fight()
+{
+	if (!currentRoom->hasEnemy || currentRoom->enemy.hp <= 0)
+	{
+		return;
+	}
+
+	printCreature(currentRoom->enemy);
+
+	// finish fight
+	while (playerHP > 0 && currentRoom->enemy.hp > 0)
+	{
+		battleMenu(playerHP, currentRoom->enemy);
+
+		int move = intVal(1, 3);
+
+		battleSequence(move, playerHP, currentRoom->enemy);
+	}
 }
 
 void Adventure::collectTreasure()
@@ -221,7 +241,19 @@ void Adventure::explore()
 
 	while (exploring)
 	{
-		// collect treasure before anything displays
+		// fight first thing with a creature
+		fight();
+
+		// if you lose
+		if (playerHP <= 0)
+		{
+			std::cout << "\nYou've been rendered unconcious."
+				  << "\nYou escaped with 0 of "
+				  << startingLoot << " gil.\n";
+			break;
+		}
+		
+		// survive the fight and collect treasure
 		collectTreasure();
 
 		displayRoom();
@@ -260,11 +292,23 @@ void Adventure::explore()
 			}
 			else
 			{
-				std::cout << "\nYou leave the adventure.\n";
+				std::cout << "\nYou escaped with your loot.\n";
+				//exploring = false;
+				printInventory(inventory, inventoryLength);
+
+				int escapedLoot = 0;
+
+				for (int i = 0; i < inventoryLength; i++)
+				{
+					escapedLoot += inventory[i].gil;	
+				}
+
+				std::cout << "\nYou escaped with " << escapedLoot
+					  << " of " << startingLoot << " gil.\n";
 				exploring = false;
 			}
 		}
-		else // added display inventory option
+		else if (choice == 4) // added display inventory option
 		{
 			printInventory(inventory, inventoryLength);
 		}
@@ -302,7 +346,7 @@ void battleMenu(const int playerHP, Creature creature)
 	<< "\n1) Quick Attack"
 	<< "\n2) Heavy Attack"
 	<< "\n3) Beg"
-	<< "\n4) Turn around and run"
+	/* <<"\n4) Turn around and run"*/
 	<< "\n>> ";
 }
 

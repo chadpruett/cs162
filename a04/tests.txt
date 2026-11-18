@@ -1,0 +1,33 @@
+************************************************************************
+
+// Scenario 1: Revisit Tabloid Lounge
+// Action: Defeat the Piano, leave the room then return
+// Expecting: No second fight and no treasure
+// Actual: Piano gets defeated, you collect the microphone, and upon
+	   returning, there is only a room description.
+
+************************************************************************
+
+// Scenario 2: Defeat after collecting treasure.
+// Action: Collect the Bellhop Hat, then choose Beg against the
+	   Piano until the player is defeated.
+// Expecting: Exploration ends and will report 0 of the total possible
+	      gil escaped with. 
+// Actual: You get defeated and the exploration ends showing that you
+ 	   left with nothing in your posession and 0 gil. 
+************************************************************************
+
+// Scenario 3: Collect all the treasure.
+// Action: Collect all the treasure in the rooms.
+// Expecting: If successful treasure wont respawn and you leave the
+	      exploration with all the gil.
+// Actual: Rooms successfully track what treasure is taken or not.
+
+************************************************************************
+
+// Scenario 4: Invalid choice doesnt move you.
+// Action: Input wrong commands.
+// Expecting: Prompt teasing you that you can't play the game right.
+// Actual: Humiliation successful.
+
+************************************************************************
