@@ -63,6 +63,10 @@ helps to support an organized code. I still think I want more time to keep
 working on these things, especially pointers. I have been creating small 
 programs on the back end with my same hotel universe to make sure that I 
 got it locked down.
+
+I have also been experimenting with github because I hear that is an important
+place to put any projects on. It's been nice navigating that, and I'm still
+trying to get the etiquette and flow down with it. 
  
 ****************************************************************************
 

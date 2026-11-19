@@ -1,7 +1,7 @@
 # Assignment 04
 
-
-**FINAL SUBMISSION IS LABELLED a01**
+Build:
+make
 
 ## Compilation
 This program was written and tested using g++ in Ubuntu/WSL.
@@ -10,7 +10,7 @@ to compile:
 
 ```bash
 
-g++ -Wall -Wextra -std=c++17 a01.cpp -o a01
+g++ -std=c++11 -Wall -Wextra main.cpp adventure.cpp -o adventure
 
 ## Overview
 // OVERVIEW:
