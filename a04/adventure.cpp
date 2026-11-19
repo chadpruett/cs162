@@ -5,27 +5,27 @@
 #include<ctime>
 #include<cstring>
 
-// adventure class constructor
-Adventure::Adventure() // runs when object is created
-{
-	root = new Room{}; // create a room
 
-	// create lobby
+Adventure::Adventure()
+{
+	root = new Room{};
+
+	// create rooms, titles, descriptions and children
 	std::strcpy(root->title, "Lobby");
 	std::strcpy(root->description, "A beautiful chandelier flickers above "
 	"the empty reception desk. Patti Page's 'Old Cape Cod' echoes throughout "
 	"the cavernous halls of the hotel. ");
 	
-	// show next room
+
 	std::strcpy(root->leftPath, "Enter the Grandeur Hallway.");
 	
-	// create hallway
+
 	root->left = new Room{};
 	std::strcpy(root->left->title, "Grandeur Hallway");
 	std::strcpy(root->left->description, "The hallway seems to stretch around "
 	"your every step.");
 	
-	// create lunar dune
+
 	root->right = new Room{};
 	std::strcpy(root->right->title, "Lunar Dune");
 	std::strcpy(root->right->description, "Silver sands stretch beneath "
@@ -33,36 +33,32 @@ Adventure::Adventure() // runs when object is created
 	
 	std::strcpy(root->rightPath, "Traverse across the Lunar Dune");
 
-	root->right->parent = root; //set hallway return to lobby
+	root->right->parent = root;
 
-	Room* hallway = root->left; // point to hallway
+	Room* hallway = root->left;
 	hallway->parent = root;
 
-	// create the ballroom, set title and description
+
 	hallway->left = new Room{};
 	std::strcpy(hallway->left->title, "Ballroom");
 	std::strcpy(hallway->left->description, "An empty dance floor waits "
 	"beneathe dusty lights. You can't help but wonder what has gone down here.");
 	std::strcpy(hallway->leftPath, "Enter the Ballroom");
 
-	hallway->left->parent = hallway; // return from ballroom to hallway
+	hallway->left->parent = hallway;
 
-	hallway->right = new Room{}; // allocate room and connect to hallway right child
+	hallway->right = new Room{};  
 
-	// set room title and description
 	std::strcpy(hallway->right->title, "Suite 1027");
 	std::strcpy(hallway->right->description, "The light from the "
 	"moon's mother planet spills across the neatly fashioned bed.");
 
-	// store path to hallway
 	std::strcpy(hallway->rightPath, "Enter Suite 1027");
 
-	// return to hallway
 	hallway->right->parent = hallway;
 
 	Room* ballroom = hallway->left;
 
-	// create tabloid lounge
 	ballroom->left = new Room{};
 	std::strcpy(ballroom->left->title, "Tabloid Lounge");
 	std::strcpy(ballroom->left->description, "A candle lit bar curves beside "
@@ -72,7 +68,6 @@ Adventure::Adventure() // runs when object is created
 	std::strcpy(ballroom->leftPath, "Enter Tabloid Lounge");
 	ballroom->left->parent = ballroom;
 
-	// create terrace
 	ballroom->right = new Room{};
 	std::strcpy(ballroom->right->title, "Echo Balcony");
 	std::strcpy(ballroom->right->description, "The hotel's balcony "
@@ -91,10 +86,9 @@ Adventure::Adventure() // runs when object is created
 
 	std::strcpy(dune->leftPath, "Approach Crash Site");
 
-	// connect crash site to lunar dune
 	dune->left->parent = dune;
 
-	//treasure system
+	// treasure system
 	hallway->right->treasure = Treasure{"Bellhop Hat", 45};
 	hallway->right->hasTreasure = true;
 
@@ -104,13 +98,11 @@ Adventure::Adventure() // runs when object is created
 	dune->left->treasure = Treasure{"Communication Log", 75};
 	dune->left->hasTreasure = true;
 
-	// player
 	playerHP = 100;
 
-	// start with no treasure
 	inventoryLength = 0;
-	
-	// add creatures
+
+	// enemy	
 	ballroom->left->enemy = Creature{
 		"Piano", "F Sharp", 80, 10, 60
 	};
@@ -118,15 +110,14 @@ Adventure::Adventure() // runs when object is created
 
 	startingLoot = calcLoot(root);
 
-	currentRoom = root; //copy to lobby's address
+	currentRoom = root;
 	
-	//total loot in Hotel
 	std::cout << "\nTotal treasure available in Hotel: " << startingLoot << " gil\n";
 }
 
-Adventure::~Adventure() //
+Adventure::~Adventure()
 {
-	deleteRooms(root); // free memory
+	deleteRooms(root);
 }
 
 void Adventure::fight()
@@ -138,7 +129,6 @@ void Adventure::fight()
 
 	printCreature(currentRoom->enemy);
 
-	// finish fight
 	while (playerHP > 0 && currentRoom->enemy.hp > 0)
 	{
 		battleMenu(playerHP, currentRoom->enemy);
@@ -181,7 +171,7 @@ void Adventure::collectTreasure()
 
 int Adventure::calcLoot(const Room* room) const
 {
-	// no treasure 
+	// if no treasure 
 	if (room == nullptr)
 	{
 		return 0;
@@ -204,7 +194,6 @@ void Adventure::displayRoom() const
 	std::cout << "\n----- " << currentRoom->title << " ----\n"
 		  << currentRoom->description << "\n";
 
-	// display player hp
 	std::cout << "\n[Player HP: " << playerHP << "]\n";
 	
 	// show a path if available
@@ -229,7 +218,6 @@ void Adventure::displayRoom() const
 		std::cout << "\n3) Leave the adventure";	
 	}
 
-	// display inventory
 	std::cout << "\n4) Check inventory";
 
 	std::cout << "\n";
@@ -308,7 +296,7 @@ void Adventure::explore()
 				exploring = false;
 			}
 		}
-		else if (choice == 4) // added display inventory option
+		else if (choice == 4)
 		{
 			printInventory(inventory, inventoryLength);
 		}
@@ -346,7 +334,7 @@ void battleMenu(const int playerHP, Creature creature)
 	<< "\n1) Quick Attack"
 	<< "\n2) Heavy Attack"
 	<< "\n3) Beg"
-	/* <<"\n4) Turn around and run"*/
+	/* <<"\n4) Turn around and run" turned off for now. too much to fix at the moment. */ 
 	<< "\n>> ";
 }
 

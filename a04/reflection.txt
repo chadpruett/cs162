@@ -5,8 +5,13 @@
 What was your biggest challenge?
 
 // Response:
-Having the skeleton from the first assignment there made the rest somewhat
-easier to see bigger picture.
+Having the skeleton from the first assignment there made it easier to see
+the bigger picture. I reused the battle functions that already existed
+(which was great), I just moved them into the specific room that had the
+creature being generated. Keeping track of the pointers and 
+connecting them to the right rooms seemed more of a challenge this time
+around than the last assignment. Especially when it came to accessing
+the rooms and values assigned to them. 
 ****************************************************************************
 
 
@@ -14,6 +19,10 @@ easier to see bigger picture.
 Why does it follow child pointers but not parent pointers?
 
 // Response:
+The base case is room == nullptr, which returns 0 because there is no
+room or treasure to count. The calculation follows child pointers to visit
+each room once. Following parent pointers would take us backward to a
+previously visited room and could cause endless recursion. 
 
 ****************************************************************************
 
@@ -21,9 +30,15 @@ Why does it follow child pointers but not parent pointers?
 // Question 3: How does your program remember what happened in a room when
 the player returns?
 
-// Response: Once a treasure is collected, I set the bool hasTreasure to
-false so that the program remembers not to give me the loot that has been
-assigned to that particular room.
+// Response:
+Each room stores values that remember what happened while exploring, i.e.
+root->left = new Room. That memory holds all of the room's values. Moving
+between rooms simply changes the currentRoom without creating any new
+rooms, so those values stay. When an enemy is defeated, its health stays 
+at zero or below, so returning does not start another fight. Collecting 
+treasure sets hasTreasure to false, preventing it from being collected 
+again. Treasure can only be collected when there is no living enemy in 
+the room, including rooms that never had an enemy.
 
 ****************************************************************************
 
@@ -32,6 +47,22 @@ assigned to that particular room.
 feel about your progress?
 
 // Response:
-Pointers. 
+Before this course started, during the summer, I was practicing a lot on wsl
+with classes and structs, and very breifly pointers. I think pointers was
+the last topic we covered in CS161B, but I was somewhat checked out at that
+point (no pun intended). It was nice that this class seemed to primarily 
+focus on those three things as that is something I needed more time with. 
+Bools didn't really prove to be a problem with me this course. 
+
+One of the things I enjoy most about creating systems is organizing. The 
+analogy of functions being different houses that do specific things and then
+calling them when you need them began my organizational addiction. Having
+classes and structs organize data and then pointers connecting them can
+definitely get disorganized very easily but when done correctly it only
+helps to support an organized code. I still think I want more time to keep
+working on these things, especially pointers. I have been creating small 
+programs on the back end with my same hotel universe to make sure that I 
+got it locked down.
+ 
 ****************************************************************************
 
